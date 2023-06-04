@@ -29,6 +29,7 @@
 
                     <th>Filename</th>
                     <th>Folder</th>
+                    <th>Created By</th>
                     @if( request('show_deleted') == 1 )
 
                     @else
@@ -50,7 +51,8 @@
                                         <a href="{{url('/admin/' . $file->uuid . '/download')}}" target="_blank">{{ $media->name }} ({{ $media->size }} KB)</a>
                                     </p>
                                 @endforeach</td>
-                            <td field-key='folder'>{{ $file->folder->name or '' }}</td>
+                            <td field-key='folder'>{{ $file->folder->name }}</td>
+                            <td field-key='created_by'><p>{{ $file->created_by->name }}</p></td>
                             @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('file_delete')

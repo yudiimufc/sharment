@@ -49,7 +49,8 @@
 
                     <th>Filename</th>
                     <th>Folder</th>
-                    <th>Tanggal</th>
+                    <th>Date</th>
+                    <th>Created By</th>
                     @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                     @else
@@ -111,6 +112,7 @@
 
                             @else
                             <td field-key='tanggal'><p>{{ $file->created_at }}</p></td>
+                            <td field-key='created_by'><p>{{ $file->created_by->name }}</p></td>
                                 <td>
                                     <a href="{{url('/admin/' . $file->uuid . '/download')}}" class="btn btn-xs btn-success">Download</a>
                                     @can('file_delete')
